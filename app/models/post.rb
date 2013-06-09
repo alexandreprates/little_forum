@@ -6,8 +6,9 @@ class Post < ActiveRecord::Base
   attr_accessible :content, :parent_id
   
   before_create :make_path
+  before_save Censor.new
   before_destroy :remove_children
-  
+
   validates :content, :presence => true
   
   # trazendo os registros ordenados por arvore por padrao

@@ -26,8 +26,14 @@ class PostTest < ActiveSupport::TestCase
     first_reply = Post.create :content => 'First reply', :parent_id => topic.id
     second_reply = Post.create :content => 'Second reply', :parent_id => topic.id
     first_reply_reply = Post.create :content => 'First reply reply', :parent_id => first_reply.id
-    
     assert topic.replies.collect(&:path) == ["1.1.", "1.1.1.", "1.2."]
+  end
+
+  test "Content should be censored" do
+    censor = Censor.new
+    unsafe_text = "Unsafe text with #{censor.forbidden_worlds.sample}"
+    post = Post.create :content => unsafe_text
+    assert post.content != unsafe_text
   end
   
 end
