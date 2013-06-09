@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
   attr_accessor :parent_id
   attr_accessible :content, :parent_id
   
-  before_create :make_path
   before_save Censor.new
+  before_create :make_path
   before_destroy :remove_children
 
   validates :content, :presence => true
