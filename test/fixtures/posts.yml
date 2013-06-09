@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyString
+  path: MyString
+  topic: false
+  children: 1
+
+two:
+  content: MyString
+  path: MyString
+  topic: false
+  children: 1
