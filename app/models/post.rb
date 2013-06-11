@@ -46,8 +46,8 @@ class Post < ActiveRecord::Base
   # 
   # Cria o path de post de primeiro nivel ou topicos
   def make_path_for_topic
-    current_max_path = self.class.topics.maximum(:path) || '0.'
-    self.path = current_max_path.next
+    current_max_path = self.class.topics.maximum(:path) || '000000.'
+    self.path = current_max_path.next.rjust(7, '0')
     self.topic = true
   end
   
@@ -60,7 +60,7 @@ class Post < ActiveRecord::Base
   def make_path_for_reply!
     parent = self.class.find(self.parent_id)
     parent.increment!(:children)
-    self.path = parent.path + "#{parent.children}."
+    self.path = parent.path + "#{parent.children}.".rjust(7, '0')
   end
 
   # remove os posts viculados ao post que sera removido
