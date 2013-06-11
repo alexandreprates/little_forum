@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  content: MyString
-  path: MyString
-  topic: false
+topic:
+  content: This is a topic
+  path: 1.
+  topic: true
   children: 1
 
-two:
-  content: MyString
-  path: MyString
+reply:
+  content: Topic reply
+  path: 1.1.
   topic: false
-  children: 1
+  children: 0

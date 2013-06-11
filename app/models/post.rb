@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  cattr_reader :per_page
+  @@per_page = 2
+  
   # Metodo virtual para receber a id do post "pai" criando assim
   # uma estrutura encadeada. Quando não setado o post é considerado
   # como um topico
@@ -31,7 +34,7 @@ class Post < ActiveRecord::Base
   # Quando o *parent_id* nao vem como nil o registro eh considerado como
   # um topico
   def make_path
-    unless self.parent_id
+    if self.parent_id.blank?
       make_path_for_topic
     else
       make_path_for_reply!

@@ -1,0 +1,6 @@
+<%= form_for post do |f| %>
+  <%= f.hidden_field :parent_id %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<%- end -%>

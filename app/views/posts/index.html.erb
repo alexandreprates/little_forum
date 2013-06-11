@@ -1,0 +1,9 @@
+<%= render :partial => 'form', :locals => {:post => Post.new}%>
+
+<%- @posts.each do |post| -%>
+<div class="topic">
+  <%= l post.created_at %>
+  <%= link_to post.content, post %>
+</div>
+<%- end -%>
+<%= will_paginate @posts %>
