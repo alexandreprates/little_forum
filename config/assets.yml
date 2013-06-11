@@ -1,0 +1,4 @@
+s3_bucket: little-forum
+s3_access_key_id: AKIAJQWLWDYP4WRCL2OA
+s3_secret_access_key: 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
+s3_permission: public_read

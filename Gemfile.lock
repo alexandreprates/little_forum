@@ -39,23 +39,34 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    cssmin (1.0.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.3)
     i18n (0.6.1)
+    jammit (0.6.6)
+      cssmin (>= 1.0.3)
+      jsmin (>= 1.0.1)
+    jammit-s3 (0.6.0.2)
+      jammit (>= 0.5.4)
+      mimemagic (>= 0.1.7)
+      s3 (>= 0.3.7)
     journey (1.0.4)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jsmin (1.0.1)
     json (1.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mimemagic (0.2.0)
     multi_json (1.7.6)
     mysql2 (0.3.11)
     polyglot (0.3.3)
+    proxies (0.2.1)
     puma (2.0.1)
       rack (>= 1.1, < 2.0)
     rack (1.4.5)
@@ -83,6 +94,8 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    s3 (0.3.12)
+      proxies (~> 0.2.0)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -110,6 +123,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  jammit-s3
   jquery-rails
   mysql2
   puma
