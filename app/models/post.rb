@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   cattr_reader :per_page
-  @@per_page = 2
+  @@per_page = 5
   
   # Metodo virtual para receber a id do post "pai" criando assim
   # uma estrutura encadeada. Quando não setado o post é considerado

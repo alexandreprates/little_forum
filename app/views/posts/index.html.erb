@@ -1,9 +1,13 @@
-<%= render :partial => 'form', :locals => {:post => Post.new}%>
+<%= render :partial => 'form', :locals => {:post => @post, :title => 'New topic'}%>
 
 <%- @posts.each do |post| -%>
-<div class="topic">
-  <%= l post.created_at %>
-  <%= link_to post.content, post %>
+<div>
+  <hr>
+  <p><%= blur_censored post.content %></p>
+  <p><%= link_to "Read more", post %></p>
+  <div>
+    <span class="badge badge-success">Posted <%= l post.created_at, :format => :short %></span><div class="pull-right"><i class="icon-comment"></i> <%= pluralize post.replies.count, "Comment", "Comments" %></div>
+  </div> 
 </div>
 <%- end -%>
 <%= will_paginate @posts %>

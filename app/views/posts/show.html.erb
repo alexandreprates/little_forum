@@ -1,14 +1,20 @@
-<h1><%= @post.content %></h1> <%= button_to_function "Reply", nil, :class => 'toggle_form', :reference => "##{@post.id}_reply" %>
-<div id="<%= @post.id %>_reply" style="display: none;">
-  <%= render :partial => 'form', :locals => {:post => Post.new(:parent_id => @post.id)}%>
+<div>
+  <h1><%= blur_censored @post.content %></h1>
+  <div class="pull-right">
+    <%= render :partial => 'form', :locals => {:post => Post.new(:parent_id => @post.id), :title => "Reply"}%>
+  </div>
+  <span class="badge badge-success">Posted <%= l @post.created_at, :format => :short %></span>
 </div>
+<hr/>
+  
 
 <%- @replies.each do |reply| -%>
-<div class="reply" style="<%= indentation_by_level(reply) %>">
-  <%= reply.content %> <%= button_to_function "Reply", nil, :class => 'toggle_form', :reference => "##{reply.id}_reply" %>
-  <div id="<%= reply.id %>_reply" style="display: none;">
-    <%= render :partial => 'form', :locals => {:post => Post.new(:parent_id => reply.id)}%>  
+<div class="well" style="<%= indentation_by_level(reply) %>">
+  <div class="pull-right">
+    <%= render :partial => 'form', :locals => {:post => Post.new(:parent_id => reply.id), :title => "Reply"}%>
   </div>
+  <%= blur_censored reply.content %>
 </div>  
 <%- end -%>
+
 <%= will_paginate @replies %>

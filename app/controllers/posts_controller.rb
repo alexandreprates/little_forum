@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.topics.page(params[:page])
+    @post = Post.new
   end
   
   def show
@@ -10,12 +11,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(params[:post])
-    if @post.save
-      redirect_to :back
-    else
-      render :index
-    end
+    @post = Post.create(params[:post])
+    redirect_to :back
   end
 
 end

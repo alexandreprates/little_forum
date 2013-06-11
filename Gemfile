@@ -10,6 +10,9 @@ gem 'mysql2'
 # Pagination
 gem 'will_paginate'
 
+# Twitter bootstrap
+gem 'bootstrap-sass'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

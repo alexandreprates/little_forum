@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Little Forum</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hero-unit">
+      <p>Este é um sistema de forum de demonstração escrito em Ruby on Rails (3.2.12).</p>
+      <p><a href="#" class="btn btn-primary btn-large">Código fonte no Github</a></p>
+    </div>
+    <%= yield %>
+    <hr>
+    <footer>
+      <p>Censored Worlds: <%= Censor.new.forbidden_worlds.join(', ') %></p>
+    </footer>
+  </div>
 </body>
 </html>

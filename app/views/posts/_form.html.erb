@@ -1,6 +1,17 @@
-<%= form_for post do |f| %>
-  <%= f.hidden_field :parent_id %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
-<%- end -%>
+<a data-toggle="modal" href="#form-content-<%= post.parent_id %>" class="btn btn-warning"><%= title %></a>
+<div id="form-content-<%= post.parent_id %>" class="modal hide fade in span8" style="display: none;">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>New message</h3>
+  </div>
+  <%= form_for post, :html => {:class => "modal-form"} do |f| %>
+    <%= f.hidden_field :parent_id %>
+    <div class="modal-body">
+      <%= f.text_area :content, :class => "span6", :placeholder => 'Message', :rows => 5 %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-success" %>
+      <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+  <%- end -%>
+</div>
